@@ -2,7 +2,7 @@
 /*Function to convert Fahr valued numbers to Celsius
 valued numbers. It only takes a number or a string that can be seen as a number
 */
-let convertFahrToCelsius = (nums) => {
+const convertFahrToCelsius = (nums) => {
     if (typeof nums == 'number') {
         let celsius = ((nums-32)*(5/9));
         result = Number(celsius.toFixed(4));
