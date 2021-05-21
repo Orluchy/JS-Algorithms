@@ -42,36 +42,37 @@ const convertFahrToCelsius = (nums) => {
                             TASK2
 ////////////////////////////////////////////////////////*/
 //Number 2
-const myArrofNums = (n) => {
+const checkYuGiOh = (n) => {
     let mynums = [];
 
-    for(let i = 1; i <= mynums; i++ ) {
-        if (i % 2 === 0){
-            mynums.push ("yu");
-        } 
-        else if ( i % 3 === 0){
-            mynums.push ("gi");
-        } 
-        else if (i % 5 === 0){
-            mynums.push ("oh");
-        }
-        else if (i % 2 === 0 && i % 3 === 0){
-            mynums.push ("yu-gi");
-        }
-        else if (i % 3 === 0 && i % 5 === 0){
-            mynums.push ("gi-oh");
-        }
-        else if (i % 2 === 0 && i % 5 === 0){
-            mynums.push ("yu-oh");
-        }
-        else if (i % 2 === 0 && i % 3 === 0 && i % 5 === 0){
-            mynums.push ("yu-gi-oh");
-        }
-        else {
-            mynums.push (i);
-        }
-    }
+    if ( isNaN(n) || JSON.stringify(n) == '[]' || n == null || JSON.stringify(n) == '""' || n === true || n === false ) {
+        return `Invalid parameter: ${JSON.stringify(n)}`;
+      } 
 
-    return mynums;
+      else {
 
-}
+        for(let i = 1; i <= n; i++ ) {
+            let temp = "";
+
+            if (i % 2 === 0) {
+                temp += "yu";
+            } 
+
+            if ( i % 3 === 0) {
+                temp += (temp === "")? "gi": "-gi";
+            } 
+
+            if (i % 5 === 0) {
+                temp += (temp === "")? "oh": "-oh";
+            }
+            
+            if (temp === "") {
+                temp = i;
+            }
+
+            mynums.push(temp);
+        }
+        // console.log(mynums);
+        return mynums;
+      }
+};
